@@ -1,0 +1,35 @@
+<article id='detail'>
+  <header>
+    <ul class="breadcrumb">
+      <li>
+        <a href="<%= @categoryUrl() %>" class="navigable"><%= @category %></a><span class='divider'>/</span>
+      </li>
+      <li class='active'>
+        <a href="<%= @url() %>" class="navigable"><%= @designer_name %> - <%= @name %></a>
+      </li>
+    </ul>
+  </header>
+   <aside>
+      <div><img src="<%= @image_url %>"/></div>
+      <div></div>
+    </aside>
+    <section>
+      <header>
+        <h2><%= @designer_name %></h2>
+        <h1><%= @name %></h1>
+        <p class="price"><%= @price %></p>
+      </header>
+      <div class='action'>
+        <button>Add to cart</button>
+      </div>
+      <div class='description'>
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. 
+        <ul>
+          <li>Vel illum dolore eu feugiat nulla facilisis at vero eros.</li>
+          <li>et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit.</li>
+          <li>100% augue duis dolore te feugait nulla facilisi.</li>
+          <li>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</li>
+        </ul>
+      </div>
+    </section>
+</article>
