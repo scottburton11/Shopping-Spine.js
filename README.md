@@ -39,4 +39,4 @@ Copyright
 Contributors
 ------------
 * [Scott Burton](https://github.com/scottburton11)
-* [Jesse Wolgamot](https://github.com/jwo)
+* [Jesse Wolgamott](https://github.com/jwo)
