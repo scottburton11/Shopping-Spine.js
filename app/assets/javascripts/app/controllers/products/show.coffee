@@ -3,10 +3,11 @@ App.Controllers.Products.Show.Main = class Main extends Spine.Controller
   className: "detail"
 
   constructor: ->
-    @detail = new App.Controllers.Products.Show.Detail()
     super    
 
   render: (item) ->
+    @detail.release() if @detail
+    @detail = new App.Controllers.Products.Show.Detail()
     @html @detail.render(item).el
     @active()
     @

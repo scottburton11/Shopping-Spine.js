@@ -14,12 +14,22 @@
 //= require ./app/main
 
 $ ->
-  
-  window.cart = new App.Controllers.Cart
-  window.nav  = new App.Controllers.Nav(el: $("div.navbar"))
-  window.main = new App.Main(el: $("#main"))
+
+
+
+  App.cart        = new App.Models.Cart
+  App.cartView    = new App.Controllers.Cart(el: $("#cart-wrap"), cart: App.cart)
+  App.nav         = new App.Controllers.Nav(el: $("div.navbar"))
+  App.main        = new App.Main(el: $("#main"))
+
+  window.cart     = App.cart
+  window.cartView = App.cartView
+  window.nav      = App.nav
+  window.main     = App.main
+
 
   main.render()
+  cartView.render()
 
   Spine.Route.setup 
     history: true

@@ -1,13 +1,21 @@
 App.Controllers.Cart = class Cart extends Spine.Controller
-  @extend Spine.Events
 
   constructor: ->
     super
-    @items = []
+    @cart.bind "add", @render
 
-  add: (item) ->
-    @items.push item.id
-    @trigger "add", @items
+  render: (items) =>
+    @html JST["app/views/cart"](items: @items(), totalPrice: @totalPrice())
+    @
 
-  contains: (id) ->
-    id in @items
+  items: ->
+    length = @cart.length()
+    if length > 0
+      if length > 1
+        "#{length} items"
+      else
+        "#{length} item"
+
+  totalPrice: ->
+    if @cart.length() > 0
+      "$" + @cart.totalPrice()/100

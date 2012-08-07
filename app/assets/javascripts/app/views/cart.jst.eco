@@ -1,0 +1,7 @@
+<li class='cart'>
+  <a href='/cart'>
+    <span id='items_in_cart'><%= @items %></span>
+    <span id='cart_price'><%= @totalPrice %></span>
+    <i class='icon-shopping-cart icon-white'></i>
+  </a>
+</li>
