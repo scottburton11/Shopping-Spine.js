@@ -9,16 +9,16 @@ App.Controllers.Products.Index.Main = class Main extends Spine.Controller
     super
     
   render: ->
-    @html JST["app/views/products/index/list"](category: @category)
+    @html JST["app/views/products/index/list"](store: @store)
     @list = new App.Controllers.Products.Index.List(el: @listEl)
     @list.bind "added", @setupWaypoint
     @
 
   show: (params) =>
-    category = (params and params.category) or "MEN"
-    unless @category is category
-      @category = category
-      @list.render(@category)
+    store = (params and params.store) or "men"
+    unless @store is store
+      @store = store
+      @list.render(@store)
     @active()
 
   setupWaypoint: =>

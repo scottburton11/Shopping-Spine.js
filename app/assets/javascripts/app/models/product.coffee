@@ -1,20 +1,23 @@
 App.Models.Product = class Product extends Spine.Model
-  @configure "Product", "id", "name", "designer_name", "price", "image_url", "description", "category"
+  @configure "Product", "id", "name", "designer_name", "price", "image_url", "description", "store"
   @extend Spine.Model.Ajax
 
-  categoryUrl: ->
-    "/#{@category.toLowerCase()}"
+  storeUrl: ->
+    "/#{@store}"
+
+  descriptionItems: ->
+    @description.split(/\s\s/)
 
   @next_page: 1
   @per_page: 20
-  @category: "MEN"
+  @store: "Men"
 
   @calculatePerPage: ->
     if @next_page is 1 then 19 else 20
 
-  @changeCategory: (category) ->
+  @changeStore: (store) ->
     @next_page = 1
-    @category = category.toUpperCase()
+    @store = store
     @nextPage()
 
   @nextPage: (callback) ->
@@ -24,7 +27,7 @@ App.Models.Product = class Product extends Spine.Model
       data:
         page:     Product.next_page
         per_page: Product.calculatePerPage()
-        category: Product.category
+        store: Product.store
       processData: true
       success: (data, status, xhr) =>
         @trigger("paginated", data, status, xhr)

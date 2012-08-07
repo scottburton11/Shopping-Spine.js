@@ -7,9 +7,9 @@ App.Controllers.Products.Index.List = class List extends Spine.Controller
     Product.bind "refresh", @addAll
     super
 
-  render: (category) ->
-    @blankSlate(category)
-    Product.changeCategory(category)
+  render: (store) ->
+    @blankSlate(store)
+    Product.changeStore(store)
     @
 
   addAll: (items) =>
@@ -19,5 +19,5 @@ App.Controllers.Products.Index.List = class List extends Spine.Controller
   addOne: (item) ->
     @append new App.Controllers.Products.Index.Item(item: item).render().el
 
-  blankSlate: (category) ->
-    @html "<div class='item placcard'><h1>#{category.titleize()}</h1></div>"
+  blankSlate: (store) ->
+    @html "<div class='item placcard'><h1>#{store.titleize()}</h1></div>"

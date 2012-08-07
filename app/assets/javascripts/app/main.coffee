@@ -12,7 +12,7 @@ App.Main = class Main extends Spine.Controller
     @routes
       "/products"     :    @products.index.show
       "/products/:id" :    @products.show.show
-      "/:category"    :    @products.index.show
+      "/:store"    :    @products.index.show
       "/"             :    @products.index.show
 
   render: ->
